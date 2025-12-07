@@ -27,7 +27,6 @@ header {
   background: rgba(0,0,0,0.6);
   backdrop-filter: blur(5px);
   z-index: 1000;
-  box-sizing: border-box;
 }
 header .logo {
   font-size: 26px;
@@ -38,16 +37,12 @@ header .back-btn {
   padding: 10px 20px;
   background: #ff6b3c;
   color: white;
-  font-weight: 700;
   border-radius: 50px;
+  font-weight: 700;
   text-decoration: none;
-  transition: 0.3s;
-}
-header .back-btn:hover {
-  background: #e05c2b;
 }
 
-/* Hero Section */
+/* Hero */
 .hero {
   width: 100%;
   height: 60vh;
@@ -60,33 +55,24 @@ header .back-btn:hover {
   color: white;
   padding-top: 90px;
 }
-.hero h1 {
-  font-size: 52px;
-  font-weight: 700;
-  margin-bottom: 12px;
-}
-.hero p {
-  font-size: 22px;
-  margin-bottom: 25px;
-}
+.hero h1 { font-size: 52px; font-weight:700; margin:0 0 10px; }
+.hero p { font-size: 22px; }
 
 /* Section Title */
 .section-title {
   text-align: center;
   font-size: 36px;
   font-weight: 700;
-  margin: 60px 0 40px 0;
+  margin: 60px 0 40px;
   color: #ff6b3c;
 }
 
-/* Map Container */
+/* Cards */
 .map-container {
   max-width: 900px;
   margin: auto;
   padding: 20px;
 }
-
-/* Map Card */
 .map-card {
   background: white;
   border-radius: 12px;
@@ -95,188 +81,151 @@ header .back-btn:hover {
   margin: 20px 0;
   text-align: center;
 }
-
-/* Image */
 .map-card img {
   width: 100%;
   height: 220px;
   border-radius: 12px;
   object-fit: cover;
-  margin-bottom: 10px;
 }
-
-.map-card h2 {
-  color: #ff6b3c;
-  font-size: 22px;
-  margin-bottom: 6px;
-}
-.map-card p {
-  color: #555;
-  font-size: 14px;
-  line-height: 1.4;
-}
+.map-card h2 { font-size: 22px; margin: 10px 0 5px; color:#ff6b3c; }
+.map-card p { font-size: 14px; color:#555; }
 
 /* Buttons */
 .book-btn, .custom-btn {
   display: block;
   width: 200px;
-  margin: 1.2rem auto;
+  margin: 1rem auto;
   padding: 14px 0;
   background: #ff6b3c;
   color: #fff;
+  font-size: 18px;
   font-weight: 700;
   border-radius: 50px;
-  font-size: 18px;
   border: none;
   cursor: pointer;
-}
-.book-btn:hover, .custom-btn:hover {
-  transform: scale(1.05);
 }
 
 /* Popup */
 .popup-bg {
   display: none;
   position: fixed;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
+  top:0; left:0; width:100%; height:100%;
   background: rgba(0,0,0,0.6);
-  justify-content: center;
-  align-items: center;
-  z-index: 200;
+  justify-content:center;
+  align-items:center;
+  z-index:200;
 }
-
 .popup-box {
-  background: white;
   width: 85%;
   max-width: 340px;
-  padding: 20px;
-  border-radius: 10px;
-  text-align: center;
+  background:white;
+  padding:18px;
+  border-radius:10px;
+  text-align:center;
 }
-
-.popup-title {
-  font-size: 18px;
-  margin-bottom: 6px;
-}
-.popup-msg {
-  font-size: 14px;
-  margin-bottom: 14px;
-}
-
-.popup-btns {
-  display: flex;
-  gap: 8px;
-}
+.popup-title { font-size:18px; margin-bottom:6px; }
+.popup-msg { font-size:13px; margin-bottom:12px; }
+.popup-btns { display:flex; gap:6px; }
 .popup-btn-call, .popup-btn-cancel {
-  flex: 1;
-  padding: 10px 14px;
-  border-radius: 8px;
-  border: none;
-  cursor: pointer;
+  flex:1;
+  padding:8px;
+  border:none;
+  border-radius:8px;
+  cursor:pointer;
+  font-size:13px;
 }
-.popup-btn-call { background: #28a745; color: #fff; }
-.popup-btn-cancel { background: #e07a5f; color: #fff; }
+.popup-btn-call { background:#28a745; color:#fff; }
+.popup-btn-cancel { background:#e07a5f; color:#fff; }
 
 /* Footer */
 footer {
-  background: #060606;
-  padding: 50px 20px;
-  color: white;
+  background:#060606;
+  padding:50px 20px;
+  color:white;
 }
 .footer-container {
-  max-width: 1200px;
-  margin: auto;
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
+  max-width:1200px;
+  margin:auto;
+  display:flex;
+  justify-content:space-between;
+  flex-wrap:nowrap; /* stays side-by-side */
 }
-footer h3 { color: #ff6b3c; }
-footer p, footer a { color: #bbb; }
-.copy { margin-top: 35px; text-align: center; color: #777; }
+footer h3 { font-size:16px; color:#ff6b3c; }
+footer p, footer a { font-size:14px; color:#bbb; }
+.copy { margin-top:20px; text-align:center; color:#777; }
 
-/* ✔ MOBILE VIEW IMPROVED — Option A */
+/* ————————— 📱 MOBILE VIEW ————————— */
 @media(max-width:480px){
 
   /* Header */
   header {
-    padding: 8px 15px;
-    min-height: 52px;
+    padding:10px 15px;
+    min-height:55px;
   }
-  header .logo { font-size: 18px; }
-  header .back-btn { font-size: 10px; padding: 6px 12px; }
+  header .logo { font-size:18px; }
+  header .back-btn {
+    padding:6px 10px;
+    font-size:10px;
+  }
 
-  /* Hero */
+  /* Hero – Reduced height 25vh */
   .hero {
-    height: 42vh; /* reduced more */
-    padding-top: 70px;
+    height:25vh;
+    padding-top:60px;
+    background-position:center;
   }
-  .hero h1 { font-size: 20px; }
-  .hero p { font-size: 12px; margin-bottom: 10px; }
-  .hero button { font-size: 12px; padding: 6px 14px; }
+  .hero h1 { font-size:18px; }
+  .hero p  { font-size:11px; }
 
-  /* Section Title */
-  .section-title {
-    font-size: 20px;
-    margin: 28px 0 20px;
-  }
-
-  /* Cards in 2 Columns */
+  /* Single card – full width */
   .map-container {
-    display: grid;
-    grid-template-columns: repeat(2,1fr);
-    gap: 10px;
-    padding: 10px;
+    padding:10px;
   }
   .map-card {
-    margin: 5px;
-    padding: 10px;
+    padding:10px;
+    margin:12px 0;
   }
   .map-card img {
-    height: 100px;
+    height:120px;
   }
-  .map-card h2 { font-size: 13px; }
-  .map-card p { font-size: 11px; }
-
-  /* Center last card if odd count */
-  .map-card:last-child:nth-child(2n+1) {
-    grid-column: span 2;
-    width: 60%;
-    margin: 0 auto;
-  }
+  .map-card h2 { font-size:14px; }
+  .map-card p { font-size:11px; }
 
   /* Buttons */
   .book-btn, .custom-btn {
-    width: 150px;
-    padding: 8px 0;
-    font-size: 13px;
-    margin: 12px auto;
+    width:130px;
+    padding:7px 0;
+    font-size:12px;
   }
 
-  /* Popup */
+  /* Popup smaller */
   .popup-box {
-    width: 75%;
-    padding: 12px;
+    width:78%;
+    padding:12px;
   }
-  .popup-title { font-size: 14px; }
-  .popup-msg { font-size: 12px; margin-bottom: 10px; }
+  .popup-title { font-size:14px; }
+  .popup-msg { font-size:11px; }
   .popup-btn-call, .popup-btn-cancel {
-    padding: 6px;
-    font-size: 11px;
+    font-size:11px;
+    padding:6px;
   }
 
-  /* Footer */
+  /* Footer – side by side */
   footer {
-    padding: 26px 12px;
+    padding:25px 10px;
   }
   .footer-container {
-    flex-direction: column;
-    text-align: center;
-    gap: 12px;
+    display:flex;
+    flex-wrap:nowrap; /* keeps in one row */
+    justify-content:space-between;
   }
-  footer h3 { font-size: 14px; }
-  footer p, footer a { font-size: 12px; }
-  .copy { font-size: 10px; }
+  .footer-container > div {
+    width:33%;
+    text-align:center;
+  }
+  footer h3 { font-size:13px; }
+  footer p, footer a { font-size:10px; }
+  .copy { font-size:10px; }
 }
 
 </style>
@@ -300,15 +249,14 @@ footer p, footer a { color: #bbb; }
   <div class="map-card"><img src="b1.jpeg"><h2>Bheemiili</h2><p>Start your journey with a sunrise.</p></div>
   <div class="map-card"><img src="b2.jpeg"><h2>Thotlakonda</h2><p>Relax at the peaceful shore.</p></div>
   <div class="map-card"><img src="b3.jpeg"><h2>Rushikonda</h2><p>Enjoy thrilling water sports.</p></div>
-  <div class="map-card"><img src="b4.jpeg"><h2>Kailasgiri</h2><p>Panoramic views from the hilltop.</p></div>
-  <div class="map-card"><img src="b5.jpeg"><h2>Tenneti Park</h2><p>Perfect for nature photography.</p></div>
-  <div class="map-card"><img src="b6.jpeg"><h2>RK Beach</h2><p>End the trip with a calm evening.</p></div>
+  <div class="map-card"><img src="b4.jpeg"><h2>Kailasgiri</h2><p>Panoramic views from the hill.</p></div>
+  <div class="map-card"><img src="b5.jpeg"><h2>Tenneti Park</h2><p>Nature views & photography.</p></div>
+  <div class="map-card"><img src="b6.jpeg"><h2>RK Beach</h2><p>End the day with sunset.</p></div>
 </div>
 
-<button class="book-btn" onclick="openPopup()">Book Now</button>
-<button class="custom-btn" onclick="openPopup()">Customize Trip</button>
+<button class="book-btn" onclick="openPopup()">Book</button>
+<button class="custom-btn" onclick="openPopup()">Customize</button>
 
-<!-- Popup -->
 <div class="popup-bg" id="popup">
   <div class="popup-box">
     <div class="popup-title">Confirm Booking</div>
