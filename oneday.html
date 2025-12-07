@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tripto • 1-Day Araku Adventure Tour</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #f5f3e7, #c9d6b0, #6b705c); /* natural gradient */
+    color: #3d550c;
+}
+
+/* Header */
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 90px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 25px;
+    z-index: 1000;
+    background: rgba(255,255,255,0.85);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+    box-sizing: border-box;
+}
+
+header h2 {
+    margin: 0;
+    font-size: 26px;
+    font-weight: 700;
+    color: #3d550c;
+}
+
+/* Back Button */
+.back-btn {
+    padding: 12px 22px;
+    background: #a3b18a;
+    border-radius: 50px;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: 0.3s;
+    white-space: nowrap;
+}
+.back-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 10px #6b705c;
+}
+
+/* Cover Photo */
+.cover-photo {
+    width: 100%;
+    height: 60vh;
+    background: url('aone.jpeg') no-repeat center center/cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #fff;
+    margin-top: 90px;
+    box-shadow: inset 0 0 120px rgba(0,0,0,0.35);
+}
+
+.cover-photo h1 {
+    font-size: 48px;
+    font-weight: 700;
+    text-shadow: 0 0 10px rgba(0,0,0,0.6);
+}
+
+.cover-photo p {
+    font-size: 20px;
+    margin-top: 10px;
+    font-weight: 400;
+    text-shadow: 0 0 8px rgba(0,0,0,0.6);
+}
+
+/* Section Title */
+.section-title {
+    text-align: center;
+    font-size: 32px;
+    font-weight: 700;
+    margin: 40px 0 20px 0;
+    color: #3d550c;
+}
+
+/* Tour Cards */
+.tour-container {
+    max-width: 900px;
+    margin: 20px auto 80px auto;
+    padding: 0 20px;
+}
+
+.tour-card {
+    display: flex;
+    align-items: center;
+    margin: 1.5rem 0;
+    background: rgba(255,255,255,0.9);
+    border-radius: 15px;
+    overflow: hidden;
+    border: 1px solid rgba(0,0,0,0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.tour-card:nth-child(even) { flex-direction: row-reverse; }
+
+.tour-card img {
+    width: 40%;
+    height: 180px;
+    object-fit: cover;
+    flex-shrink: 0;
+    border-radius: 0;
+}
+
+.tour-info {
+    flex: 1;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.tour-info h2 {
+    margin: 0 0 6px 0;
+    font-size: 22px;
+    color: #6b705c;
+}
+
+.tour-info p {
+    font-size: 14px;
+    color: #3d550c;
+}
+
+.tour-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 0 20px rgba(0,0,0,0.2);
+}
+
+.text-only {
+    justify-content: center;
+    text-align: center;
+    padding: 20px 10px;
+}
+
+/* Booking & Customize buttons */
+.book-btn, .custom-btn {
+    display: block;
+    width: 200px;
+    margin: 1.2rem auto;
+    padding: 14px 0;
+    background: linear-gradient(45deg, #a3b18a, #6b705c);
+    color: #fff;
+    font-weight: 700;
+    border-radius: 50px;
+    font-size: 18px;
+    text-decoration: none;
+    text-align: center;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.book-btn:hover, .custom-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(107,112,92,0.7);
+}
+
+/* Popup */
+.popup-bg {
+    display: none;
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.6);
+    justify-content: center;
+    align-items: center;
+    z-index: 200;
+}
+
+.popup-box {
+    background: rgba(255,255,255,0.95);
+    border-radius: 15px;
+    padding: 25px 20px;
+    text-align: center;
+    width: 85%;
+    max-width: 340px;
+    animation: pop 0.3s ease;
+    border: 1px solid rgba(0,0,0,0.1);
+    color: #3d550c;
+}
+
+@keyframes pop {
+    0% { transform: scale(0.7); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+.popup-title { font-size: 22px; font-weight: 700; color: #6b705c; margin-bottom: 8px; }
+.popup-msg { font-size: 15px; color: #3d550c; margin-bottom: 18px; }
+
+.popup-btns { display: flex; gap: 8px; }
+.popup-btn-call, .popup-btn-cancel {
+    flex: 1;
+    padding: 12px 16px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.popup-btn-call { background: #a3b18a; color: #fff; }
+.popup-btn-cancel { background: #e07a5f; color: #fff; }
+
+/* Footer */
+footer {
+    background: #6b705c;
+    padding: 50px 20px;
+    color: #fff;
+}
+.footer-container {
+    max-width: 1200px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+footer h3 { color: #f5f3e7; margin-bottom: 10px; }
+footer a { color: #fff; text-decoration: none; }
+.copy { margin-top: 35px; text-align: center; color: #f5f3e7; font-size: 14px; }
+
+@media(max-width:768px) {
+    .tour-card { flex-direction: column; text-align: center; }
+    .tour-card img { width: 90%; margin-bottom: 1rem; height: 150px; }
+    .tour-info { padding: 10px; }
+    .book-btn, .custom-btn { width: 160px; font-size: 16px; padding: 12px 0; }
+    .cover-photo h1 { font-size: 36px; }
+    .cover-photo p { font-size: 16px; }
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+  <h2>VIZAG TRIPTO</h2>
+  <a href="adventure.html" class="back-btn">⬅ Back</a>
+</header>
+
+<section class="cover-photo">
+  <div>
+    <h1>1-Day Araku Adventure Tour</h1>
+    <p>Experience the scenic beauty and waterfalls of Eastern Ghats</p>
+  </div>
+</section>
+
+<h2 class="section-title">Trip Details</h2>
+
+<div class="tour-container">
+
+  <div class="tour-card text-only">
+    <div class="tour-info">
+      <h2>RTC Complex, Visakhapatnam</h2>
+      <p>Pickup — Journey begins</p>
+    </div>
+  </div>
+
+  <div class="tour-card">
+    <img src="23.jpeg" alt="Lambasingi View Point">
+    <div class="tour-info">
+      <h2>Lambasingi View Point</h2>
+      <p>Cool breezy sunrise in the hills.</p>
+    </div>
+  </div>
+
+  <div class="tour-card">
+    <img src="24.jpeg" alt="Kothapalli Waterfalls">
+    <div class="tour-info">
+      <h2>Kothapalli Waterfalls</h2>
+      <p>Powerful waterfall for photography.</p>
+    </div>
+  </div>
+
+  <div class="tour-card">
+    <img src="29.jpeg" alt="Coffee Plantations">
+    <div class="tour-info">
+      <h2>Coffee Plantations</h2>
+      <p>Walk through organic tribal coffee farms.</p>
+    </div>
+  </div>
+
+  <div class="tour-card">
+    <img src="28.jpeg" alt="Galikonda View Point">
+    <div class="tour-info">
+      <h2>Galikonda View Point</h2>
+      <p>Highest peak of Eastern Ghats.</p>
+    </div>
+  </div>
+
+  <div class="tour-card">
+    <img src="25.jpeg" alt="Chaparai Water Cascade">
+    <div class="tour-info">
+      <h2>Chaparai Water Cascade</h2>
+      <p>Natural water sliding rocks.</p>
+    </div>
+  </div>
+
+  <div class="tour-card">
+    <img src="210.jpeg" alt="Borra Caves">
+    <div class="tour-info">
+      <h2>Borra Caves</h2>
+      <p>Famous natural limestone caves.</p>
+    </div>
+  </div>
+
+  <div class="tour-card text-only">
+    <div class="tour-info">
+      <h2>Return to Vizag</h2>
+      <p>Evening drop — End of the adventure</p>
+    </div>
+  </div>
+
+  <!-- Buttons -->
+  <button class="book-btn" onclick="openPopup()">Book Now</button>
+  <button class="custom-btn" onclick="openPopup()">Customize Trip</button>
+
+</div>
+
+<!-- POPUP -->
+<div class="popup-bg" id="popup">
+  <div class="popup-box">
+    <div class="popup-title">Confirm Booking</div>
+    <div class="popup-msg">
+      To book or customize this trip, please talk to our executive.<br>
+      <span style="font-weight:600;">Would you like to call now?</span>
+    </div>
+    <div class="popup-btns">
+      <button class="popup-btn-call" onclick="callNow()">📞 Call Now</button>
+      <button class="popup-btn-cancel" onclick="closePopup()">Cancel</button>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-container">
+    <div>
+      <h3>Quick Links</h3>
+      <p><a href="#">Plans</a></p>
+      <p><a href="#">Adventure Trips</a></p>
+    </div>
+    <div class="footer-column">
+      <h3>Contact</h3>
+      <p>📞 +91 98850 96787</p>
+      <p>✉️ triptotrvl@gmail.com</p>
+      <p>🏠 Visakhapatnam, Andhra Pradesh</p>
+    </div>
+    <div>
+      <h3>Follow Us</h3>
+      <p>📸 Instagram</p>
+      <p>📘 Facebook</p>
+      <p>🐦 Twitter</p>
+    </div>
+  </div>
+  <p class="copy">© 2025 TRIPTO. All Rights Reserved.</p>
+</footer>
+
+<script>
+function openPopup() { document.getElementById("popup").style.display = "flex"; }
+function closePopup() { document.getElementById("popup").style.display = "none"; }
+function callNow() { window.location.href = "tel:9885096787"; }
+</script>
+
+</body>
+</html>
