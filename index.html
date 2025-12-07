@@ -296,25 +296,35 @@
     margin: 0 auto;
   }
 
-  /* Popup */
-  .popup-box {
-    width: 85%;
-    padding: 14px;
-  }
-  .popup-title {
-    font-size: 15px;
-  }
-  .popup-msg {
-    font-size: 12px;
-  }
-  .popup-btns {
-    gap: 8px;
-  }
-  .popup-btn-call,
-  .popup-btn-cancel {
-    font-size: 12px;
-    padding: 8px;
-  }
+  /* Popup Compact Mobile */
+.popup-box {
+    width: 78%;            /* smaller width */
+    max-width: 300px;      /* tighter limit */
+    padding: 10px 12px;    /* less padding */
+    border-radius: 10px;
+}
+
+.popup-title {
+    font-size: 14px;       /* reduced font */
+    margin-bottom: 6px;
+}
+
+.popup-msg {
+    font-size: 11px;
+    margin-bottom: 12px;
+    line-height: 1.3;      /* tighter text */
+}
+
+.popup-btns {
+    gap: 6px;              /* less gap between buttons */
+}
+
+.popup-btn-call,
+.popup-btn-cancel {
+    font-size: 11px;
+    padding: 6px;          /* smaller button height */
+    border-radius: 6px;
+}
 
   /* Footer */
   footer {
