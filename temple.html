@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 <title>Tripto • Temple Trip</title>
 
 <style>
@@ -28,210 +28,199 @@ header {
   backdrop-filter: blur(12px);
   z-index: 1000;
   padding: 0 20px;
-  box-sizing: border-box;
 }
-
-header h2 { 
-  margin: 0; 
-  font-size: 26px; 
-  font-weight: 700; 
-  color: #ffcc00; 
-  letter-spacing: 1px; 
-}
-
+header h2 { font-size: 26px; color: #ffcc00; margin: 0; }
 .back-btn {
   padding: 10px 20px;
-  font-size: 16px;
+  margin-right: 20px; /* move slightly left */
   background: #ffcc00;
   color: #1a1a27;
+  border-radius: 50px;
+  font-size: 16px;
   font-weight: 700;
   text-decoration: none;
-  border-radius: 50px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-  z-index: 1001;
-  white-space: nowrap;
-}
-.back-btn:hover {
-  transform: scale(1.05);
-  box-shadow: 0 6px 20px rgba(0,0,0,0.3);
 }
 
-/* Cover Photo */
+/* Hero */
 .cover-photo {
   width: 100%;
   height: 65vh;
   background: url('temple.jpeg') no-repeat center center/cover;
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding-top: 100px;
   text-align: center;
   color: #fff;
-  position: relative;
-  padding-top: 100px;
-  box-shadow: inset 0 0 150px rgba(0,0,0,0.35);
 }
-
-.cover-photo h1 {
-  font-size: 50px;
-  font-weight: 700;
-  text-shadow: 0 0 15px rgba(0,0,0,0.8);
-}
-
-.cover-photo p {
-  font-size: 22px;
-  margin-top: 10px;
-  font-weight: 400;
-  text-shadow: 0 0 10px rgba(0,0,0,0.7);
-}
+.cover-photo h1 { font-size: 50px; margin: 0 0 10px; }
+.cover-photo p { font-size: 22px; }
 
 /* Section Title */
 .section-title {
   text-align: center;
   font-size: 36px;
   font-weight: 700;
-  margin-top: 50px;
-  margin-bottom: 30px;
-  color: #1a1a27;
-  text-shadow: 0 1px 3px rgba(0,0,0,0.2);
+  margin: 50px 0 30px;
 }
 
-/* Tour Cards */
+/* Cards */
 .tour-container {
   max-width: 1000px;
-  margin: 0 auto 100px auto;
-  padding: 0 20px;
+  margin: auto;
+  padding: 0 20px 60px;
 }
-
 .tour-card {
+  background: #fff3e0;
+  border-radius: 20px;
   display: flex;
   align-items: center;
-  margin: 2.5rem 0;
-  border-radius: 20px;
-  overflow: hidden;
-  box-shadow: 0 6px 25px rgba(0,0,0,0.15);
-  transition: transform 0.3s, box-shadow 0.3s;
-  background: #fff3e0;
+  margin: 25px 0;
+  padding: 10px;
+  box-shadow: 0 6px 25px rgba(0,0,0,0.12);
 }
-
-.tour-card:nth-child(even) { flex-direction: row-reverse; }
-
 .tour-card img {
   width: 40%;
-  object-fit: cover;
-  border-radius: 0 20px 20px 0;
   max-height: 180px;
+  border-radius: 15px;
+  object-fit: cover;
 }
-
 .tour-info {
-  flex: 1;
-  padding: 1.5rem 2rem;
+  padding: 1rem 1.4rem;
 }
+.tour-info h2 { font-size: 22px; color:#ffcc00; margin: 0 0 6px; }
+.tour-info p { font-size: 14px; }
 
-.tour-info h2 {
-  margin-top: 0;
-  font-size: 26px;
-  color: #ffcc00;
-}
-
-.tour-info p {
-  font-size: 16px;
-  color: #1a1a27;
-  line-height: 1.6;
-}
-
-.tour-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 12px 35px rgba(0,0,0,0.25);
-}
-
-/* Action Buttons */
+/* Buttons */
 .action-btn {
   display: block;
-  width: 220px;
-  margin: 1.5rem auto;
-  padding: 16px 0;
+  width: 200px;
+  margin: 1rem auto;
+  padding: 14px 0;
   background: #ffcc00;
   color: #1a1a27;
   border-radius: 50px;
-  font-weight: 700;
-  font-size: 20px;
-  text-decoration: none;
-  text-align: center;
-  border: 2px solid #ffcc00;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.2);
-}
-.action-btn:hover {
-  transform: scale(1.08);
-  box-shadow: 0 8px 25px rgba(0,0,0,0.3);
-}
-
-/* Popup Modal */
-.popup {
-  display: none;
-  position: fixed;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  background: rgba(0,0,0,0.75);
-  backdrop-filter: blur(5px);
-  justify-content: center;
-  align-items: center;
-  z-index: 999;
-}
-.popup-content {
-  background: #fff8e1;
-  padding: 35px 45px;
-  border-radius: 18px;
-  text-align: center;
-  border: 1px solid rgba(255,204,0,0.5);
-  box-shadow: 0 0 35px rgba(0,0,0,0.2);
-  animation: popupAnim 0.4s ease;
-}
-.popup-content h2 { margin: 0; font-size: 28px; color: #1a1a27; }
-.popup-content p { font-size: 17px; color: #1a1a27; margin-top: 10px; }
-.popup-btn {
-  margin: 15px;
-  padding: 12px 32px;
-  border-radius: 40px;
   font-size: 18px;
   font-weight: 700;
-  cursor: pointer;
   border: none;
+  text-align:center;
 }
-.popup-btn.call { background: #ffcc00; color: #1a1a27; }
-.popup-btn.close { background: #ff4747; color: #fff; }
-.popup-btn:hover { transform: scale(1.08); }
 
-@keyframes popupAnim {
-  from { transform: scale(0.7); opacity: 0; }
-  to { transform: scale(1); opacity: 1; }
+/* Popup */
+.popup {
+  display:none;
+  position:fixed;
+  top:0; left:0;
+  width:100%; height:100%;
+  justify-content:center;
+  align-items:center;
+  background:rgba(0,0,0,0.75);
 }
+.popup-content {
+  width:85%;
+  max-width:340px;
+  background:#fff8e1;
+  padding:20px;
+  border-radius:14px;
+  text-align:center;
+}
+.popup-content h2 { font-size:18px; }
+.popup-content p { font-size:13px; }
+.popup-btn {
+  margin:8px 0;
+  padding:8px 20px;
+  border-radius:40px;
+  font-size:13px;
+  border:none;
+  cursor:pointer;
+}
+.call { background:#ffcc00; color:#1a1a27; }
+.close { background:#ff4747; color:#fff; }
 
 /* Footer */
 footer {
-  background: #1a1a27;
-  padding: 50px 20px;
-  color: #fff;
+  background:#1a1a27;
+  padding:50px 20px;
 }
 .footer-container {
-  max-width: 1200px;
-  margin: auto;
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
+  max-width:1200px;
+  margin:auto;
+  display:flex;
+  justify-content:space-between;
 }
-footer h3 { margin-bottom: 10px; color: #ffcc00; }
-footer a { text-decoration: none; color: #cfcfcf; }
-footer p { color: #ddd; }
-.copy { margin-top: 35px; text-align: center; color: #aaa; font-size: 14px; }
+footer h3 { color:#ffcc00; font-size:16px; }
+footer p, footer a { font-size:14px; color:#ddd; }
+.copy { text-align:center; margin-top:20px; font-size:14px; }
 
-@media(max-width:768px) {
-  .tour-card { flex-direction: column; text-align: center; }
-  .tour-card img { width: 90%; margin-bottom: 1rem; border-radius: 20px; max-height: 150px; }
-  .action-btn { width: 180px; font-size: 18px; padding: 14px 0; }
-  .cover-photo h1 { font-size: 36px; }
-  .cover-photo p { font-size: 18px; }
+/* ——— MOBILE VIEW ——— */
+@media(max-width:480px){
+
+  /* Header */
+  header {
+    height:55px;
+    padding:0 15px;
+  }
+  header h2 { font-size:16px; }
+  .back-btn {
+    font-size:10px;
+    padding:6px 12px;
+    margin-right:12px;
+  }
+
+  /* Hero */
+  .cover-photo {
+    height:25vh; /* reduced */
+    padding-top:60px;
+  }
+  .cover-photo h1 { font-size:18px; }
+  .cover-photo p { font-size:10px; }
+
+  /* Cards single-column small */
+  .tour-card {
+    flex-direction:column;
+    text-align:center;
+    padding:10px;
+    margin:10px 0;
+  }
+  .tour-card img {
+    width:100%;
+    max-height:120px;
+    border-radius:15px;
+  }
+  .tour-info h2 { font-size:13px; }
+  .tour-info p { font-size:10px; }
+
+  /* Buttons */
+  .action-btn {
+    width:130px;
+    padding:7px 0;
+    font-size:12px;
+  }
+
+  /* Popup smaller */
+  .popup-content {
+    width:78%;
+    padding:12px;
+  }
+  .popup-content h2 { font-size:14px; }
+  .popup-content p { font-size:11px; }
+  .popup-btn { font-size:11px; padding:6px; }
+
+  /* Footer side-by-side */
+  footer { padding:26px 10px; }
+  .footer-container {
+    display:flex;
+    justify-content:space-between;
+    flex-wrap:nowrap;
+  }
+  .footer-container > div {
+    width:33%;
+    text-align:center;
+  }
+  footer h3 { font-size:12px; }
+  footer p, footer a { font-size:10px; }
+  .copy { font-size:10px; }
 }
 </style>
 </head>
@@ -243,118 +232,50 @@ footer p { color: #ddd; }
   <a href="index.html" class="back-btn">⬅ Back</a>
 </header>
 
-<!-- Cover Photo -->
 <section class="cover-photo">
-  <div>
-    <h1>Temple Trip — Vizag</h1>
-    <p>Experience the spiritual journey across ancient temples</p>
-  </div>
+  <h1>Temple Trip — Vizag</h1>
+  <p>Experience the spiritual journey across ancient temples</p>
 </section>
 
+<h2 class="section-title">Temple Journey</h2>
+
 <div class="tour-container">
+  <div class="tour-card"><img src="t1.jpg"><div class="tour-info"><h2>Kanakamahalakshmi Temple</h2><p>Divine blessings of Goddess Lakshmi.</p></div></div>
+  <div class="tour-card"><img src="t2.jpeg"><div class="tour-info"><h2>Bellam Vinayaka</h2><p>Powerful Lord Ganesha temple.</p></div></div>
+  <div class="tour-card"><img src="t3.jpeg"><div class="tour-info"><h2>Kali Maa Temple</h2><p>Spiritual devotion to Maa Kali.</p></div></div>
+  <div class="tour-card"><img src="t4.jpeg"><div class="tour-info"><h2>Sampath Vinayaka</h2><p>Most visited for divine wishes.</p></div></div>
+  <div class="tour-card"><img src="t5.jpeg"><div class="tour-info"><h2>ISKCON Temple</h2><p>Peaceful Krishna bhakti.</p></div></div>
+  <div class="tour-card"><img src="t6.jpeg"><div class="tour-info"><h2>TTD Kshetram</h2><p>Tirumala replica in Vizag.</p></div></div>
+  <div class="tour-card"><img src="t7.jpeg"><div class="tour-info"><h2>Simhachalam Temple</h2><p>Ancient Narasimha temple.</p></div></div>
 
-  <div class="tour-card">
-    <img src="t1.jpg" alt="Shri Kanaka Maha Lakshmi Temple">
-    <div class="tour-info">
-      <h2>Shri Kanaka Maha Lakshmi Temple</h2>
-      <p>Located at the heart of Vizag — famous for blessings of Goddess Lakshmi.</p>
-    </div>
-  </div>
-
-  <div class="tour-card">
-    <img src="t2.jpeg" alt="Bellam Vinayakudu Temple">
-    <div class="tour-info">
-      <h2>Bellam Vinayakudu Temple</h2>
-      <p>A divine Lord Ganesha temple surrounded with peace and positivity.</p>
-    </div>
-  </div>
-
-  <div class="tour-card">
-    <img src="t3.jpeg" alt="Kali Maa Temple">
-    <div class="tour-info">
-      <h2>Kali Maa Temple</h2>
-      <p>Devotees visit for strength and spiritual connection with Maa Kali.</p>
-    </div>
-  </div>
-
-  <div class="tour-card">
-    <img src="t4.jpeg" alt="Sri Sampath Vinayaka Temple">
-    <div class="tour-info">
-      <h2>Sri Sampath Vinayaka Temple</h2>
-      <p>Most powerful and popular Ganesha temple believed to fulfill wishes.</p>
-    </div>
-  </div>
-
-  <div class="tour-card">
-    <img src="t5.jpeg" alt="ISKCON Temple">
-    <div class="tour-info">
-      <h2>ISKCON Temple</h2>
-      <p>Lord Krishna temple — peaceful, devotional and mesmerizing architecture.</p>
-    </div>
-  </div>
-
-  <div class="tour-card">
-    <img src="t6.jpeg" alt="TTD Sri Venkateswara Swamy Divya Kshetram">
-    <div class="tour-info">
-      <h2>TTD Sri Venkateswara Swamy Divya Kshetram</h2>
-      <p>Tirumala replica — divine atmosphere with spiritual vibes.</p>
-    </div>
-  </div>
-
-  <div class="tour-card">
-    <img src="t7.jpeg" alt="Simhachalam Temple">
-    <div class="tour-info">
-      <h2>Simhachalam Temple</h2>
-      <p>Ancient temple of Sri Varaha Lakshmi Narasimha — on a beautiful hilltop.</p>
-    </div>
-  </div>
-
-  <!-- Buttons -->
-  <a href="#" class="action-btn" onclick="openPopup()">Book Trip</a>
-  <a href="#" class="action-btn" onclick="openPopup()">Customize Trip</a>
-
+  <button class="action-btn" onclick="openPopup()">Book</button>
+  <button class="action-btn" onclick="openPopup()">Customize</button>
 </div>
 
-<!-- Popup Modal -->
+<!-- Popup -->
 <div id="popup" class="popup">
   <div class="popup-content">
     <h2>Confirm Booking</h2>
-    <p>To book or customize this trip, please talk to our executive.</p>
-    <p style="font-weight:600; margin-top:-8px;">Would you like to call now?</p>
-    <button class="popup-btn call" onclick="callNow()">📞 Call Now</button>
+    <p>Would you like to call now?</p>
+    <button class="popup-btn call" onclick="callNow()">📞 Call</button>
     <button class="popup-btn close" onclick="closePopup()">Cancel</button>
   </div>
 </div>
 
+<script>
+function openPopup(){ document.getElementById('popup').style.display='flex'; }
+function closePopup(){ document.getElementById('popup').style.display='none'; }
+function callNow(){ window.location.href='tel:9885096787'; }
+</script>
+
 <footer>
   <div class="footer-container">
-    <div>
-      <h3>Quick Links</h3>
-      <p><a href="#">Plans</a></p>
-      <p><a href="#">Adventure Trips</a></p>
-      <p><a href="#">Temple Trips</a></p>
-    </div>
-    <div class="footer-column">
-      <h3>Contact</h3>
-      <p>📞 +91 98850 96787</p>
-      <p>✉️ triptotrvl@gmail.com</p>
-      <p>🏠 Visakhapatnam, Andhra Pradesh</p>
-    </div>
-    <div>
-      <h3>Follow Us</h3>
-      <p>📸 Instagram</p>
-      <p>📘 Facebook</p>
-      <p>🐦 Twitter</p>
-    </div>
+    <div><h3>Links</h3><p><a href="#">Plans</a></p></div>
+    <div><h3>Contact</h3><p>📞 +91 98850 96787</p></div>
+    <div><h3>Follow</h3><p>Instagram</p></div>
   </div>
-  <p class="copy">© 2025 TRIPTO. All rights reserved.</p>
+  <p class="copy">© 2025 TRIPTO.</p>
 </footer>
-
-<script>
-function openPopup(){ document.getElementById("popup").style.display = "flex"; }
-function closePopup(){ document.getElementById("popup").style.display = "none"; }
-function callNow(){ window.location.href = "tel:9885096787"; }
-</script>
 
 </body>
 </html>
