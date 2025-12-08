@@ -6,154 +6,156 @@
 <title>Tripto • Adventure Plans</title>
 
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
 
-  body {
-    margin: 0;
-    font-family: 'Poppins', sans-serif;
-    background: linear-gradient(135deg, #dbe2d8, #a3b18a, #6b705c); /* Earthy gradient */
-    color: #333;
-  }
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #dbe2d8, #a3b18a, #6b705c);
+  color: #333;
+}
+
+/* Header */
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 10px 25px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1000;
+  background: rgba(255,255,255,0.85);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+header h2 {
+  margin: 0;
+  font-size: 22px;
+  font-weight: 700;
+  color: #3d550c;
+}
+.back-btn {
+  padding: 8px 16px;
+  background: #a3b18a;
+  border-radius: 40px;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+/* Section Title */
+.section-title {
+  text-align: center;
+  font-size: 28px;
+  font-weight: 700;
+  margin-top: 100px;
+  margin-bottom: 25px;
+  color: #3d550c;
+}
+
+/* Tour Cards */
+.tour-container {
+  max-width: 900px;
+  margin: 30px auto 100px auto;
+  padding: 0 15px;
+}
+.tour-card {
+  display: flex;
+  align-items: center;
+  margin: 2.2rem 0;
+  background: rgba(255,255,255,0.8);
+  border-radius: 18px;
+  overflow: hidden;
+  border: 1px solid rgba(0,0,0,0.1);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.18);
+  transition: .3s;
+  cursor: pointer;
+}
+.tour-card:nth-child(even) { flex-direction: row-reverse; }
+.tour-card img {
+  width: 45%;
+  height: 240px;
+  object-fit: cover;
+}
+.tour-info {
+  flex: 1;
+  padding: 1.4rem 1.6rem;
+}
+.tour-info h2 {
+  font-size: 20px;
+  color: #6b705c;
+  margin: 0 0 6px;
+}
+.tour-info p {
+  font-size: 13px;
+  color: #3d550c;
+}
+
+.tour-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+}
+
+/* Footer — same style as other pages */
+footer {
+  background:#6b705c;
+  padding: 40px 20px;
+  color:#fff;
+}
+.footer-container {
+  max-width:900px;
+  margin:auto;
+  display:flex;
+  justify-content:space-between;
+}
+footer h3 { color:#f5f3e7; font-size:14px; margin-bottom:6px; }
+footer p, footer a { color:#fff; font-size:12px; text-decoration:none; }
+.copy { margin-top:25px; text-align:center; font-size:12px; }
+
+/* ---------- MOBILE VIEW (Temple style) ---------- */
+@media(max-width:480px){
 
   /* Header */
-  header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    padding: 15px 30px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    z-index: 1000;
-    background: rgba(255, 255, 255, 0.85);
-    backdrop-filter: blur(8px);
-    box-sizing: border-box;
-    border-bottom: 1px solid rgba(0,0,0,0.1);
-  }
+  header { height: 50px; padding: 0 12px; }
+  header h2 { font-size: 14px; }
+  .back-btn { font-size: 10px; padding: 5px 10px; margin-right: 10px; }
 
-  header h2 {
-    margin: 0;
-    font-size: 26px;
-    font-weight: 700;
-    color: #3d550c; /* Dark green natural color */
-  }
-
-  .back-btn {
-    padding: 8px 18px;
-    min-width: 80px;
-    background: #a3b18a; /* Soft green */
-    border-radius: 40px;
-    color: #fff;
-    font-weight: 700;
-    text-decoration: none;
-    text-align: center;
-    transition: .3s;
-    white-space: nowrap;
-  }
-
-  .back-btn:hover {
-    transform: scale(1.08);
-    box-shadow: 0 0 10px #6b705c; /* subtle earthy shadow */
-  }
-
+  /* Title */
   .section-title {
-    text-align: center;
-    font-size: 36px;
-    font-weight: 700;
-    margin-top: 120px;
-    margin-bottom: 20px;
-    color: #3d550c;
-    text-shadow: 0px 0px 5px rgba(255,255,255,0.3);
+    margin-top: 70px;
+    font-size: 18px;
   }
 
-  /* Cards */
-  .tour-container {
-    max-width: 900px;
-    margin: 50px auto 100px auto;
-  }
-
+  /* Cards — same alignment */
   .tour-card {
-    display: flex;
-    align-items: center;
-    margin: 3rem 0;
-    background: rgba(255, 255, 255, 0.8);
-    border-radius: 20px;
-    overflow: hidden;
-    border: 1px solid rgba(0,0,0,0.1);
-    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
-    transition: .3s;
-    cursor: pointer;
+    flex-direction: column !important;
+    text-align: center;
+    padding: 8px;
+    margin: 10px 0;
   }
-
-  .tour-card:nth-child(even) {
-    flex-direction: row-reverse;
-  }
-
   .tour-card img {
-    width: 45%;
-    height: 300px;
-    object-fit: cover;
-    border-radius: 0;
-    transition: transform 0.5s;
+    width: 100%;
+    height: 110px;
+    border-radius: 15px;
   }
-
-  .tour-card:hover img {
-    transform: scale(1.05);
-  }
-
-  .tour-info {
-    flex: 1;
-    padding: 2rem;
-  }
-
-  .tour-info h2 {
-    margin: 0 0 10px;
-    font-size: 28px;
-    color: #6b705c; /* earthy brown heading */
-  }
-
-  .tour-info p {
-    font-size: 16px;
-    color: #3d550c;
-  }
-
-  .tour-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 12px 25px rgba(0,0,0,0.25);
-  }
+  .tour-info h2 { font-size: 12px; }
+  .tour-info p { font-size: 9px; }
 
   /* Footer */
-  footer {
-    background: #a3b18a;
-    padding: 50px 20px;
-    color: #fff;
-  }
-
+  footer { padding:22px 10px; }
   .footer-container {
-    max-width: 900px;
-    margin: auto;
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
+    display:flex;
+    flex-wrap:nowrap;
+    justify-content:space-between;
+    text-align:center;
   }
-
-  footer h3 { margin-bottom: 10px; color: #3d550c; }
-  footer a { text-decoration: none; color: #fff; }
-  footer p { color: #fff; }
-  .copy {
-    margin-top: 35px;
-    text-align: center;
-    color: #3d550c;
-    font-size: 14px;
-  }
-
-  @media(max-width:768px) {
-    .tour-card { flex-direction: column; text-align: center; }
-    .tour-card img { width: 85%; margin-bottom: 1rem; }
-    header { padding: 10px 15px; }
-    .back-btn { padding: 6px 12px; font-size: 14px; }
-  }
+  .footer-container > div { width:33%; }
+  footer h3 { font-size:10px; }
+  footer p, footer a { font-size:9px; }
+  .copy { font-size:9px; margin-top:12px; }
+}
 </style>
 </head>
 
@@ -168,21 +170,19 @@
 
 <div class="tour-container">
 
-  <!-- One Day -->
   <div class="tour-card" onclick="location.href='oneday.html'">
-    <img src="aone.jpeg" alt="One Day Trip">
+    <img src="aone.jpeg">
     <div class="tour-info">
       <h2>One Day Trip</h2>
-      <p>Short and exciting adventure perfect for quick weekend fun.</p>
+      <p>Perfect for a quick weekend escape with adventure spots.</p>
     </div>
   </div>
 
-  <!-- Two Day -->
-  <div class="tour-card" onclick="location.href='oneday.html'">
-    <img src="ncamp.jpeg" alt="Two Day Trip">
+  <div class="tour-card" onclick="location.href='twoday.html'">
+    <img src="ncamp.jpeg">
     <div class="tour-info">
       <h2>Two Day Trip</h2>
-      <p>Extended adventure with more places to explore and enjoy.</p>
+      <p>Explore deeper into the hills for longer adventures.</p>
     </div>
   </div>
 
@@ -195,20 +195,20 @@
       <p><a href="#">Adventure Trips</a></p>
       <p><a href="#">Beach Trips</a></p>
     </div>
-    <div class="footer-column">
+    <div>
       <h3>Contact</h3>
       <p>📞 +91 98850 96787</p>
       <p>✉️ triptotrvl@gmail.com</p>
-      <p>🏠 Visakhapatnam, Andhra Pradesh</p>
+      <p>🏠 Visakhapatnam, AP</p>
     </div>
     <div>
       <h3>Follow Us</h3>
-      <p>📘 Facebook</p>
       <p>📸 Instagram</p>
+      <p>📘 Facebook</p>
       <p>🐦 Twitter</p>
     </div>
   </div>
-  <p class="copy">© 2025 TRIPTO. All rights reserved.</p>
+  <p class="copy">© 2025 TRIPTO. All Rights Reserved.</p>
 </footer>
 
 </body>
